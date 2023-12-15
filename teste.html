@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  // Verificar se a largura da janela é menor que 600 pixels
+  const query = window.matchMedia('(max-width: 600px)');
+
+  // Função de retorno de chamada que será chamada sempre que a condição da consulta de mídia mudar
+  const handleQueryChange = (event) => {
+    if (event.matches) {
+      // A condição da consulta de mídia é verdadeira
+      console.log('A largura é menor que 600 pixels');
+    } else {
+      // A condição da consulta de mídia é falsa
+      console.log('A largura é maior ou igual a 600 pixels');
+    }
+  };
+
+  // Adicionar o ouvinte de mudança à consulta de mídia
+  query.addListener(handleQueryChange);
+
+  // Chamar a função de retorno de chamada pela primeira vez para verificar o estado inicial
+  handleQueryChange(query);
+
+</script>
+</html>
