@@ -279,19 +279,19 @@ main {
     margin-bottom: 10px;
 }
 .whats {
-    /* border: 4px solid blue; */
+    border: 4px solid blue;
     margin-top: 15px;
     display: flex;
-    gap: 20px;
+    gap: 40px;
     width: 100%;
     margin-bottom: 60px;
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
 .whats-card {
-    width: 24%;
-    min-width: 280px;
-    /* border: 5px solid tan; */
+    width: 22%;
+    min-width: 240px;
+    border: 5px solid tan;
     display: flex;
     flex-direction: column;
     gap: 20px;
