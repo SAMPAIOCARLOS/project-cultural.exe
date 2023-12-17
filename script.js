@@ -1,29 +1,27 @@
-const menu = document.getElementById('hamburguer')
-const navMenu = document.querySelector('.nav-menu')
+const menu = document.getElementById('hamburguer');
+const navMenu = document.querySelector('.nav-menu');
+navMenu.style.border = '1px solid blue'
 
-const navbar = document.getElementById("nav-header")
-const nome = document.getElementById("nome")
+const navbar = document.getElementById("nav-header");
+const nome = document.getElementById("nome");
 const hamb = document.querySelectorAll('#hamburguer span');
 
-// document.getElementById('button-exibir').addEventListener('click', ()=> {
-//     document.getElementById('ul-infor').classList.toggle('flex')
-// })
-
-const iconsSocial = document.querySelectorAll('.icon-social')
+const iconsSocial = document.querySelectorAll('.icon-social');
 
 let con = 0
 
+
 menu.addEventListener('click', ()=> {
-    menu.classList.toggle('active')
-    navMenu.classList.toggle('active')
+    menu.classList.toggle('active');
+    navMenu.classList.toggle('active');
 
     if(navMenu.classList.contains('active')) {
-        console.log('ativo')
+        console.log('ativo');
         navMenu.style.display = 'block'
 
         hamb.forEach(elemnt => {
-            elemnt.style.backgroundColor = '#fff'
-        })
+            elemnt.style.backgroundColor = '#000'
+        });
 
         fetch('dados.json').then((res)=> {
             res.json()
@@ -43,6 +41,7 @@ menu.addEventListener('click', ()=> {
                     boxTitle.setAttribute('id', 'box-title')
 
                     const paragrafo = document.createElement('p')
+                    paragrafo.setAttribute('class', 'paragrafo-nav-menu')
                     paragrafo.innerText = dado.name
 
                     const button_exibir = document.createElement('button')
@@ -60,36 +59,39 @@ menu.addEventListener('click', ()=> {
                             button_exibir.style.color = 'rgb(0, 149, 255)'
                         } else {
                             ul_infor.style.display = 'none'
-                            button_exibir.style.color = ''
+                            button_exibir.style.color = '#000'
                         }
-                    })
+                    });
 
                     const dadoss = dado.dados
 
                     for (let index = 0; index < dadoss.length; index++) {
                         const dado = dadoss[index];
 
-                        const dataLi = document.createElement('li')
+                        const dataLi = document.createElement('li');
                         dataLi.style.padding = '10px'
                         dataLi.innerText = dado
-                        ul_infor.append(dataLi)
+                        ul_infor.append(dataLi);
 
                     }
 
-                    navMenu.append(newli)
-                    newli.append(boxTitle)
-                    boxTitle.append(paragrafo, button_exibir)
-                    newli.append(ul_infor)   
-
-                })
-            })
-        })
+                    navMenu.append(newli);
+                    newli.append(boxTitle);
+                    boxTitle.append(paragrafo, button_exibir);
+                    newli.append(ul_infor);
+                });
+            });
+        });
 
     } else{
         console.log('não ativo')
         navMenu.style.display = 'none'
+
+        hamb.forEach(elemnt => {
+            elemnt.style.backgroundColor = '#fff'
+        });
     }
-})
+});
 
 
 window.onscroll = function () {
@@ -100,7 +102,7 @@ window.onscroll = function () {
 
         hamb.forEach(elemnt => {
             elemnt.style.backgroundColor = '#000'
-        })
+        });
     } else {
         navbar.classList.remove("fixed");
         nome.style.display = 'block'
@@ -108,6 +110,6 @@ window.onscroll = function () {
 
         hamb.forEach(elemnt => {
             elemnt.style.backgroundColor = '#fff'
-        })
+        });
     }
 };
