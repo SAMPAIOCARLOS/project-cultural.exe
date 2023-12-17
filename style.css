@@ -279,7 +279,7 @@ main {
     margin-bottom: 10px;
 }
 .whats {
-    border: 4px solid blue;
+    /* border: 4px solid blue; */
     margin-top: 15px;
     display: flex;
     gap: 40px;
@@ -291,7 +291,7 @@ main {
 .whats-card {
     width: 22%;
     min-width: 240px;
-    border: 5px solid tan;
+    /* border: 5px solid tan; */
     display: flex;
     flex-direction: column;
     gap: 20px;
